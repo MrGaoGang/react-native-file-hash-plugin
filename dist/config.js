@@ -58,7 +58,7 @@ var defaultConfig = {
 };
 function load() {
     return __awaiter(this, void 0, void 0, function () {
-        var metroConfigPath, metroConfig, transformerOptions, imageHashPluginOptions, config;
+        var metroConfigPath, metroConfig, transformerOptions, fileHashPluginOptions, config;
         return __generator(this, function (_a) {
             metroConfigPath = path_1.default.join(process.cwd(), "metro.config.js");
             try {
@@ -68,8 +68,8 @@ function load() {
                 metroConfig = {};
             }
             transformerOptions = metroConfig.transformer || {};
-            imageHashPluginOptions = transformerOptions.imageHashPlugin || {};
-            config = __assign(__assign({}, defaultConfig), imageHashPluginOptions);
+            fileHashPluginOptions = transformerOptions.fileHashPlugin || {};
+            config = __assign(__assign({}, defaultConfig), fileHashPluginOptions);
             return [2 /*return*/, config];
         });
     });

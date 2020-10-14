@@ -1,6 +1,6 @@
 # react-native-file-hash-plugin
 
-create image hash in react-native!
+create file hash in react-native!
 
 ## Installation
 
@@ -37,7 +37,7 @@ module.exports = {
 
 ## Configuration
 
-You can configure the plugin behaviour through the optional `imageHashPlugin` field in your `metro.config.js` file under the `transformer` section.
+You can configure the plugin behaviour through the optional `fileHashPlugin` field in your `metro.config.js` file under the `transformer` section.
 
 For example:
 
@@ -52,14 +52,14 @@ module.exports = {
     }),
     assetPlugins: ["react-native-file-hash-plugin"],
   },
-  imageHashPlugin: {
-    // the image type to hash,default is png,jpeg,jpg,gif
+  fileHashPlugin: {
+    // the file type to hash,default is png,jpeg,jpg,gif
     types: ["png", "jpeg", "jpg", "gif"],
-    // the input params is image name and file path; the output is hash string
-    hashFunction: (imageName, path) => {
+    // the input params is file name and file path; the output is hash string
+    hashFunction: (fileName, path) => {
       return "your hash";
     },
-    // the  ignore image path regex
+    // the  ignore file path regex
     ignoreRegex: null,
   },
 };
@@ -71,7 +71,7 @@ example:
 
 > react-native bundle --entry-file index.js --bundle-output ./bundle/ios.bundle --platform ios --assets-dest ./bundle --dev false
 
-will output like this, and the image will add hash string.
+will output like this, and the file will add hash string.
 
 ```js
 ├─assets

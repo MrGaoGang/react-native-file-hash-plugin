@@ -49,7 +49,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var config_1 = require("./config");
 var asyncLoadConfig = config_1.load();
-function reactNativeImageHashPlugin(assetData) {
+function reactNativeFileHashPlugin(assetData) {
     return __awaiter(this, void 0, void 0, function () {
         var filePath;
         return __generator(this, function (_a) {
@@ -59,7 +59,7 @@ function reactNativeImageHashPlugin(assetData) {
                     return [4 /*yield*/, shouldConvertFile(assetData, filePath)];
                 case 1:
                     if (_a.sent()) {
-                        return [2 /*return*/, createImageHash(assetData, filePath)];
+                        return [2 /*return*/, createfileHash(assetData, filePath)];
                     }
                     return [2 /*return*/, assetData];
             }
@@ -88,7 +88,7 @@ function shouldConvertFile(assetData, filePath) {
         });
     });
 }
-function createImageHash(assetData, filePath) {
+function createfileHash(assetData, filePath) {
     return __awaiter(this, void 0, void 0, function () {
         var config, useHash, outputName;
         return __generator(this, function (_a) {
@@ -98,7 +98,7 @@ function createImageHash(assetData, filePath) {
                         throw new Error("No files passed.");
                     }
                     else if (assetData.files.length > 1) {
-                        throw new Error("Multiple image  not supported.");
+                        throw new Error("Multiple file  not supported.");
                     }
                     return [4 /*yield*/, asyncLoadConfig];
                 case 1:
@@ -121,5 +121,5 @@ function getAssetDest() {
     }
     return "";
 }
-exports.default = reactNativeImageHashPlugin;
-module.exports = reactNativeImageHashPlugin;
+exports.default = reactNativeFileHashPlugin;
+module.exports = reactNativeFileHashPlugin;

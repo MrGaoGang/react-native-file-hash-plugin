@@ -1,11 +1,11 @@
 import path from "path";
 
 export interface Config {
-  // the image type to hash
+  // the file type to hash
   types: Array<string>;
-  // the input params is image name and file path; the output is hash string
-  hashFunction?: (imageName: string, path: string ) => string;
-  // the  ignore image path regex
+  // the input params is file name and file path; the output is hash string
+  hashFunction?: (fileName: string, path: string ) => string;
+  // the  ignore file path regex
   ignoreRegex: RegExp | null;
   // the react-native bundle '--assets-dest' path ,default will read by process.args
   outputPath?: string;
@@ -27,11 +27,11 @@ export async function load(): Promise<Config> {
   }
 
   const transformerOptions = metroConfig.transformer || {};
-  const imageHashPluginOptions = transformerOptions.imageHashPlugin || {};
+  const fileHashPluginOptions = transformerOptions.fileHashPlugin || {};
 
   const config = {
     ...defaultConfig,
-    ...imageHashPluginOptions,
+    ...fileHashPluginOptions,
   };
 
   return config;

@@ -1,10 +1,10 @@
 import { AssetData, AssetDataPlugin } from "./module";
 import { load, Config } from "./config";
 const asyncLoadConfig: Promise<Config> = load();
-async function reactNativeImageHashPlugin(assetData: AssetData) {
+async function reactNativeFileHashPlugin(assetData: AssetData) {
   const filePath = assetData.files.length ? assetData.files[0] : "";
   if (await shouldConvertFile(assetData, filePath)) {
-    return createImageHash(assetData, filePath);
+    return createfileHash(assetData, filePath);
   }
   return assetData;
 }
@@ -24,14 +24,14 @@ async function shouldConvertFile(
   return true;
 }
 
-async function createImageHash(
+async function createfileHash(
   assetData: AssetData,
   filePath: string
 ) {
   if (assetData.files.length === 0) {
     throw new Error("No files passed.");
   } else if (assetData.files.length > 1) {
-    throw new Error("Multiple image  not supported.");
+    throw new Error("Multiple file  not supported.");
   }
   const config = await asyncLoadConfig;
 
@@ -61,5 +61,5 @@ function getAssetDest(): string {
   }
   return "";
 }
-export default reactNativeImageHashPlugin;
-module.exports = reactNativeImageHashPlugin;
+export default reactNativeFileHashPlugin;
+module.exports = reactNativeFileHashPlugin;
