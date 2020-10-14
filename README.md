@@ -55,7 +55,7 @@ module.exports = {
   fileHashPlugin: {
     // the file type to hash,default is png,jpeg,jpg,gif
     types: ["png", "jpeg", "jpg", "gif"],
-    // the input params is file name and file path; the output is hash string
+    // the input params is file name and file path; the output is hash string ,default is react-native hash
     hashFunction: (fileName, path) => {
       return "your hash";
     },

@@ -56,21 +56,46 @@ var defaultConfig = {
     types: ["png", "jpeg", "jpg", "gif"],
     ignoreRegex: null,
 };
+function isPromise(obj) {
+    return (!!obj &&
+        (typeof obj === "object" || typeof obj === "function") &&
+        typeof obj.then === "function");
+}
 function load() {
     return __awaiter(this, void 0, void 0, function () {
-        var metroConfigPath, metroConfig, transformerOptions, fileHashPluginOptions, config;
-        return __generator(this, function (_a) {
-            metroConfigPath = path_1.default.join(process.cwd(), "metro.config.js");
-            try {
-                metroConfig = require(metroConfigPath);
+        var metroConfigPath, metroConfig, config_1, _a, transformerOptions, fileHashPluginOptions, config;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    metroConfigPath = path_1.default.join(process.cwd(), "metro.config.js");
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 5, , 6]);
+                    config_1 = require(metroConfigPath);
+                    if (!isPromise(config_1)) return [3 /*break*/, 3];
+                    return [4 /*yield*/, config_1];
+                case 2:
+                    metroConfig = _b.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    if (typeof config_1 === "function") {
+                        metroConfig = config_1;
+                    }
+                    else {
+                        metroConfig = config_1;
+                    }
+                    _b.label = 4;
+                case 4: return [3 /*break*/, 6];
+                case 5:
+                    _a = _b.sent();
+                    metroConfig = {};
+                    return [3 /*break*/, 6];
+                case 6:
+                    transformerOptions = metroConfig.transformer || {};
+                    fileHashPluginOptions = transformerOptions.fileHashPlugin || {};
+                    config = __assign(__assign({}, defaultConfig), fileHashPluginOptions);
+                    return [2 /*return*/, config];
             }
-            catch (_b) {
-                metroConfig = {};
-            }
-            transformerOptions = metroConfig.transformer || {};
-            fileHashPluginOptions = transformerOptions.fileHashPlugin || {};
-            config = __assign(__assign({}, defaultConfig), fileHashPluginOptions);
-            return [2 /*return*/, config];
         });
     });
 }

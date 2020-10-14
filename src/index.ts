@@ -41,7 +41,7 @@ async function createfileHash(
       assetData,
       `${assetData.name}.${assetData.type}`,
       filePath
-    );
+    );    
   }
   const outputName = `${assetData.name}-${
     useHash != "" ? useHash : assetData.hash
@@ -50,7 +50,7 @@ async function createfileHash(
 
   return {
     ...assetData,
-    name: outputName,
+    name: outputName
   };
 }
 
