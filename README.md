@@ -6,7 +6,9 @@ create file hash in react-native!
 
 **npm**
 
-> npm install --save-dev react-native-file-hash-plugin
+```bash
+npm install --save-dev react-native-file-hash-plugin
+```
 
 **metro**
 
@@ -69,7 +71,12 @@ module.exports = {
 
 example:
 
-> react-native bundle --entry-file index.js --bundle-output ./bundle/ios.bundle --platform ios --assets-dest ./bundle --dev false
+```bash
+react-native bundle --entry-file index.js --bundle-output ./bundle/ios.bundle --platform ios --reset-cache --assets-dest ./bundle --dev false
+
+```
+
+**suggest to add `--reset-cache ` params.**
 
 will output like this, and the file will add hash string.
 
