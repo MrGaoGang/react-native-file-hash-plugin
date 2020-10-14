@@ -1,5 +1,5 @@
 {
-  "name": "react-native-img-hash-plugin",
+  "name": "react-native-file-hash-plugin",
   "version": "1.0.0",
   "description": "create image hash in react-native",
   "main": "./dist/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrGaoGang/react-native-img-hash-plugin.git"
+    "url": "git+https://github.com/MrGaoGang/react-native-file-hash-plugin.git"
   },
   "keywords": [
     "react-native",
@@ -19,9 +19,9 @@
   "author": "mrgaogang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MrGaoGang/react-native-img-hash-plugin/issues"
+    "url": "https://github.com/MrGaoGang/react-native-file-hash-plugin/issues"
   },
-  "homepage": "https://github.com/MrGaoGang/react-native-img-hash-plugin#readme",
+  "homepage": "https://github.com/MrGaoGang/react-native-file-hash-plugin#readme",
   "devDependencies": {
     "@types/node": "^14.11.8",
     "metro": "^0.63.0",

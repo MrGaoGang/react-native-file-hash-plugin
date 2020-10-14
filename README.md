@@ -1,4 +1,4 @@
-# react-native-img-hash-plugin
+# react-native-file-hash-plugin
 
 create image hash in react-native!
 
@@ -6,11 +6,11 @@ create image hash in react-native!
 
 **npm**
 
-> npm install --save-dev react-native-img-hash-plugin
+> npm install --save-dev react-native-file-hash-plugin
 
 **metro**
 
-Add `react-native-img-hash-plugin` to the list of assetPlugins in your `metro.config.js` file under the transformer section.
+Add `react-native-file-hash-plugin` to the list of assetPlugins in your `metro.config.js` file under the transformer section.
 
 for example :
 
@@ -30,7 +30,7 @@ module.exports = {
         inlineRequires: false,
       },
     }),
-    assetPlugins: ["react-native-img-hash-plugin"],
+    assetPlugins: ["react-native-file-hash-plugin"],
   },
 };
 ```
@@ -50,7 +50,7 @@ module.exports = {
         inlineRequires: false,
       },
     }),
-    assetPlugins: ["react-native-img-hash-plugin"],
+    assetPlugins: ["react-native-file-hash-plugin"],
   },
   imageHashPlugin: {
     // the image type to hash,default is png,jpeg,jpg,gif
