@@ -90,7 +90,7 @@ function shouldConvertFile(assetData, filePath) {
 }
 function createfileHash(assetData, filePath) {
     return __awaiter(this, void 0, void 0, function () {
-        var config, useHash, outputName;
+        var config, useHash, outputName, externalOptions;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -108,8 +108,16 @@ function createfileHash(assetData, filePath) {
                         useHash = config.hashFunction.call(assetData, assetData.name + "." + assetData.type, filePath);
                     }
                     outputName = assetData.name + "-" + (useHash != "" ? useHash : assetData.hash);
-                    //   const outputPath = config.outputPath ? config.outputPath : getAssetDest();
-                    return [2 /*return*/, __assign(__assign({}, assetData), { name: outputName })];
+                    externalOptions = config.externalOptions
+                        ? config.externalOptions.call(assetData, assetData.name + "." + assetData.type, filePath)
+                        : {};
+                        console.log(externalOptions,'============');
+                    if (Object.prototype.toString.call(externalOptions) !== "[object Object]") {
+                        externalOptions = {};
+                    }
+                    console.log(externalOptions,'======aaa======');
+
+                    return [2 /*return*/, __assign(__assign(__assign({}, assetData), { name: outputName }), externalOptions)];
             }
         });
     });

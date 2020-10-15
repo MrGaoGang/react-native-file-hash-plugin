@@ -24,10 +24,7 @@ async function shouldConvertFile(
   return true;
 }
 
-async function createfileHash(
-  assetData: AssetData,
-  filePath: string
-) {
+async function createfileHash(assetData: AssetData, filePath: string) {
   if (assetData.files.length === 0) {
     throw new Error("No files passed.");
   } else if (assetData.files.length > 1) {
@@ -41,16 +38,26 @@ async function createfileHash(
       assetData,
       `${assetData.name}.${assetData.type}`,
       filePath
-    );    
+    );
   }
   const outputName = `${assetData.name}-${
     useHash != "" ? useHash : assetData.hash
   }`;
-//   const outputPath = config.outputPath ? config.outputPath : getAssetDest();
-
+  //   const outputPath = config.outputPath ? config.outputPath : getAssetDest();
+  let externalOptions = config.externalOptions
+    ? config.externalOptions.call(
+        assetData,
+        `${assetData.name}.${assetData.type}`,
+        filePath
+      )
+    : {};
+  if (Object.prototype.toString.call(externalOptions) !== "[object Object]") {
+    externalOptions = {};
+  }
   return {
     ...assetData,
-    name: outputName
+    name: outputName,
+    ...externalOptions
   };
 }
 

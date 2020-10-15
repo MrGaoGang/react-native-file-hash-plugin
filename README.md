@@ -55,14 +55,24 @@ module.exports = {
     assetPlugins: ["react-native-file-hash-plugin"],
   },
   fileHashPlugin: {
+    // optional
     // the file type to hash,default is png,jpeg,jpg,gif
     types: ["png", "jpeg", "jpg", "gif"],
+    // optional
     // the input params is file name and file path; the output is hash string ,default is react-native hash
     hashFunction: (fileName, path) => {
       return "your hash";
     },
+    // optional
     // the  ignore file path regex
     ignoreRegex: null,
+    // optional
+    // add external options to asset, resturn must be object
+    externalOptions: (fileName, path) => {
+      return {
+        key: "mrgaogang",
+      };
+    },
   },
 };
 ```

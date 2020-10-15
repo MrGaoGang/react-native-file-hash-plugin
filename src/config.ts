@@ -9,6 +9,8 @@ export interface Config {
   ignoreRegex: RegExp | null;
   // the react-native bundle '--assets-dest' path ,default will read by process.args
   outputPath?: string;
+  // external object to asset
+  externalOptions?: (fileName: string, path: string) => object;
 }
 
 const defaultConfig: Config = {
@@ -43,7 +45,6 @@ export async function load(): Promise<Config> {
 
   const transformerOptions = metroConfig.transformer || {};
   const fileHashPluginOptions = transformerOptions.fileHashPlugin || {};
-
   const config = {
     ...defaultConfig,
     ...fileHashPluginOptions,
