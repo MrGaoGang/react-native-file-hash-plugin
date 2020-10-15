@@ -1,6 +1,6 @@
 # react-native-file-hash-plugin
 
-create file hash in react-native!
+create file `hash` and `transform` asset  in react-native **bundle**! when you use `react-native run-ios/run-android`  it will not work, it is just use in `react-native bundle ...`
 
 ## Installation
 
