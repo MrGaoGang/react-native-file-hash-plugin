@@ -1,6 +1,6 @@
 {
   "name": "react-native-file-hash-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "create image hash in react-native",
   "main": "./dist/index.js",
   "scripts": {
