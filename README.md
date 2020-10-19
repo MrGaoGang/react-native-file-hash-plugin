@@ -101,3 +101,47 @@ will output like this, and the file will add hash string.
 └─ios.bundle
 
 ```
+
+## Others
+
+if you want to transform Images, also you can use `Image.resolveAssetSource.setCustomSourceTransformer`,
+
+```js
+Image.resolveAssetSource.setCustomSourceTransformer((resolver) => {
+  // do any thing you want
+  if (Platform.OS === 'android') {
+      return this.isLoadedFromFileSystem()
+        ? this.drawableFolderInBundle()
+        : this.resourceIdentifierWithoutScale();
+    } else {
+      return this.scaledAssetURLNearBundle();
+    }
+});
+
+```
+
+the `resolver` is:
+
+```js
+ // node_modules/react-native/Libraries/Image/AssetSourceResolver.js
+  serverUrl: ?string;
+  // where the jsbundle is being run from
+  jsbundleUrl: ?string;
+  // the asset to resolve
+  asset: PackagerAsset;
+  
+ // PackagerAsset is 
+ export type PackagerAsset = {
+  +__packager_asset: boolean,
+  +fileSystemLocation: string,
+  +httpServerLocation: string,
+  +width: ?number,
+  +height: ?number,
+  +scales: Array<number>,
+  +hash: string,
+  +name: string,
+  +type: string,
+  ...
+};
+  
+```
